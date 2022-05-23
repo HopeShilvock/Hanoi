@@ -18,7 +18,7 @@ class Game:
     def tick(self):
         if self.settings["auto"]==False:
             move = self.requestMove()
-            valid = validate(move)
+            valid = self.validate(move)
         else:
             move = self.makeMove()
             valid=True
@@ -44,11 +44,11 @@ class Game:
                 move = (self.destination,mid)
         if self.validate(move) == True:
             print(" ",move[0],">",move[1])
-            #time.sleep(0.01)
+            time.sleep(0.1)
             return move
         else:
             print(" ",move[1],">",move[0])
-            #time.sleep(0.01)
+            time.sleep(0.1)
             return (move[1],move[0])
 
 
